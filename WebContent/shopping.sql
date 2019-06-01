@@ -2,6 +2,7 @@ create user shoppingproject identified by password;​
 grant dba, resource, connect to shoppingproject;
 conn shoppingproject/password;
 
+
 select * from shoppinguser;
 
 create table shoppinguser(
@@ -14,6 +15,8 @@ create table shoppinguser(
   Email varchar2(30),
   Contact varchar2(20),
   Address varchar2(50));
+  
+  insert into shoppinguser values((SELECT nvl(max(UserID),0)+1 FROM SHOPPINGUSER),'A','admin','admin',NULL,'Man',NULL,NULL,NULL);
   
   create table shoppingproduct(
   ProductID number constraints product_ProductID_PK primary key,

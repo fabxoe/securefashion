@@ -34,7 +34,7 @@ public class ProductDAO {
     
     private static final String ALLRETRIEVE_STMT = "SELECT * FROM shoppingproduct";
     private static final String INSERT_STMT = "INSERT INTO shoppingproduct VALUES(?,?,?,?,?,?)";
-    private static final String UPDATE_STMT = "UPDATE shoppingproduct SET ProductType = ? ProductName = ? Explanation = ? Price = ? Inventory = ? WHERE ProductID = ?";
+    private static final String UPDATE_STMT = "UPDATE shoppingproduct SET ProductType = ?, ProductName = ?, Explanation = ?, Price = ?, Inventory = ? WHERE ProductID = ?";
     private static final String GETID_STMT = "SELECT COUNT(ProductID) FROM shoppingproduct";
     
     ArrayList<Product> allproductRetrieve() throws SQLException {

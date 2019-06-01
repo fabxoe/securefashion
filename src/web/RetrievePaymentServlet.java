@@ -30,15 +30,31 @@ public class RetrievePaymentServlet extends HttpServlet{
         HttpSession session = request.getSession();
         int userid = ((User) session.getAttribute("user")).getUserid();
         System.out.println("RetrievePaymentServlet 내에서 Userid 받아옴");
+        
+        String usertype = ((User) session.getAttribute("user")).getUsertype();
+        System.out.println("RetrievePaymentServlet 내에서 Usertype 받아옴");
+        
         ArrayList<Payment> payments = null;
         
         PaymentService PaymentService = new PaymentService();
-        payments = PaymentService.getAllPayment(userid);
+        
+        if(usertype.equals("C")) {
+        	payments = PaymentService.getAllPayment(userid);
+        }else {
+        	payments = PaymentService.getAllPayment();
+        }
+        
         System.out.println("RetrievePaymentServlet 내에서 payments 받아옴");
         //System.out.println("RetrievePaymentServlet 내에서 pay정보출력: "+payments.get(0).getPaymentid());
         request.setAttribute("user", session.getAttribute("user"));
         request.setAttribute("payments", payments);
-        view = request.getRequestDispatcher("payment.jsp");
-        view.forward(request, response);
+        
+        if(usertype.equals("C")) {
+        	view = request.getRequestDispatcher("payment.jsp");
+        	view.forward(request, response);        	
+        }else {
+        	view = request.getRequestDispatcher("admin/payment.jsp");
+        	view.forward(request, response);        	
+        }
     }
 } 
