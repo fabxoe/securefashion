@@ -23,6 +23,10 @@
 </head>
 <body>
 	<h2>Hello, <%= user.getUsername() %></h2>
+	<form action="basket" method="post">
+		<input type="hidden" name="userid" value="<%=user.getUserid()%>">
+		<input type="submit" value="My Basket">
+	</form>		
 	<form action="search" method="post">
 	    Search the product you want :
 	    <input type="text" name="productname" size="24">
@@ -37,6 +41,7 @@
 	        <th width="400">Explanation</th>
 	        <th width="150">Price</th>
 	        <th width="100">Inventory</th>
+	        <th width="200">Take in Basket</th>
 	    </tr>
 	    <%
 	        for (int i = 0; i < products.size(); i++) {
@@ -47,8 +52,17 @@
 	        <td align="center"><%=product.getProducttype()%></td>
 	        <td align="center"><%=product.getProductname()%></td>
 	        <td align="center"><%=product.getExplanation()%></td>
-	        <td align="center"><%=product.getPrice()%></td>
+	        <td align="center">$<%=product.getPrice()%></td>
 	        <td align="center"><%=product.getInventory()%></td>
+	        <td align="center">
+	        	<form action="take" method="post">
+	        		Enter the numbers you want:
+	        		<input type="hidden" name="userid" value="<%= user.getUserid() %>">
+	        		<input type="hidden" name="productid" value="<%=product.getProductid()%>">
+                    <input type="text" name="numbers" size="5">
+                    <input type="submit" value="Take">
+	        	</form>
+	        </td>
 	    </tr>
 	    <% } %>
 	  </table>

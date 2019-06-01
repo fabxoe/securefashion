@@ -29,6 +29,8 @@ create table shoppinguser(
   ProductID number,
   Numbers number,
   Validity number);
+  
+  drop table shoppingbasket;
 
   create table shoppingpayment(
   PaymentID number constraints payment_PaymentID_PK primary key,
@@ -40,10 +42,12 @@ create table shoppinguser(
   CreditCardNumber varchar2(20),
   CreditCardPassword varchar2(10));
   
-  insert into shoppingproduct values(1, 'Laptop', 'Gigabyte P55K V5',
+insert into shoppingproduct values(1, 'Laptop', 'Gigabyte P55K V5',
 'Display Screen 15 inch, Chip set made by Intel, i7', 1500, 150);
 insert into shoppingproduct values(2, 'Mouse', 'Gigabyte GM-M6900',
 'Interface USB, Maximum sensitivity 32', 20, 300);
 insert into shoppingproduct values(3, 'Mainboard', 'Gigabyte GA-B85M-D3H',
 'Socket Intel-Socket1150, mATX of Standard', 100, 50);
   
+
+insert into shoppingbasket values(1, 1, 1, 3, 1);
