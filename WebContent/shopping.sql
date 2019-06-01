@@ -26,6 +26,8 @@ create table shoppinguser(
   Price number,
   Inventory number);
   
+  SELECT * FROM SHOPPINGPRODUCT;
+  
   create table shoppingbasket(
   BasketID number constraints basket_BasketID_PK primary key,
   UserID number,
@@ -34,7 +36,7 @@ create table shoppinguser(
   Validity number);
   
   drop table shoppingbasket;
-
+  
   create table shoppingpayment(
   PaymentID number constraints payment_PaymentID_PK primary key,
   UserID number,
@@ -56,3 +58,4 @@ insert into shoppingproduct values(3, 'Mainboard', 'Gigabyte GA-B85M-D3H',
 insert into shoppingbasket values(1, 1, 1, 3, 1);
 
 SELECT COUNT(BasketID) FROM shoppingbasket
+
