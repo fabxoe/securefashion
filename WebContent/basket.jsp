@@ -11,6 +11,7 @@
 <% ArrayList<Basket> baskets = (ArrayList<Basket>) request.getAttribute("baskets");%>
 <% User user = (User) request.getAttribute("user");%>
 <% session.setAttribute("user", user);%>
+<% session.setAttribute("baskets", baskets); %>
 </head>
 <body>
 <h2>Hello, <%= user.getUsername()%></h2>
@@ -20,6 +21,7 @@
                 <th width="200">User Name</th>
                 <th width="200">Product ID</th>
                 <th width="200">Numbers</th>
+                <th width="200">Delete</th>
             </tr>
             <%
                 for (int i = 0; i < baskets.size(); i++) {
@@ -39,6 +41,9 @@
                	</td>
             </tr>
             <% }%>
-        </table>     
+        </table>   
+        <form action="payment" method="post">
+        	<input type="submit" value="Pay">
+        </form>  
 </body>
 </html>

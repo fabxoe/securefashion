@@ -25,17 +25,18 @@ public final class RetrieveBasketServlet extends HttpServlet {
     public void processRequest(HttpServletRequest request,
             HttpServletResponse response)
             throws IOException, ServletException {
+    	System.out.println("RetrieveBasketServlet()진입");
         RequestDispatcher view = null;
         BasketService BasketService = null;
 
-        HttpSession HttpSession = request.getSession();
+        HttpSession session = request.getSession();
         int userid = Integer.parseInt(request.getParameter("userid"));
 
         ArrayList<Basket> baskets = null;
         BasketService = new BasketService();
         baskets = BasketService.getBasket(userid);
 
-        request.setAttribute("user", HttpSession.getAttribute("user"));
+        request.setAttribute("user", session.getAttribute("user"));
         request.setAttribute("baskets", baskets);
 
         view = request.getRequestDispatcher("basket.jsp");

@@ -9,8 +9,8 @@
 <!-- 그 예시. https://themewagon.com/themes/free-html5-ecommerce-website-template/ -->
 
 <!-- login.jsp페이지는 로그인을 처리하는 페이지가 아니라 로그인을 처리하는 서블릿이 결과를 -->
-<!-- 처리하고나서 전달하는 값을 보여주기만 할 뿐. 파일명 때문에 헷갈릴까봐, -->
-<!-- 다시 한번 말하지만 로그인 기능이 아니라 로그인 결과를 보여준다!  -->
+<!-- 처리하고나서 전달하는 값을 보여주기만 할 뿐. -->
+<!--  파일명 때문에 헷갈릴까봐, 다시 한번 말하지만, 로그인 기능이 아니라 로그인을 하고난 결과를 보여준다!  -->
 
 <!DOCTYPE html>
 <html>
@@ -27,6 +27,9 @@
 		<input type="hidden" name="userid" value="<%=user.getUserid()%>">
 		<input type="submit" value="My Basket">
 	</form>		
+	<form action="paymentlist" method="post">
+        <input type="submit" value="My Payment">
+    </form>
 	<form action="search" method="post">
 	    Search the product you want :
 	    <input type="text" name="productname" size="24">
